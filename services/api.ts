@@ -19,12 +19,14 @@ export const fetchMovies = async ({ query }: { query: string }) => {
     headers: TMDB_CONFIG.headers,
   });
 
+  console.log("The url that is called 👉", endpoint)
+
   if (!response.ok) {
     throw new Error(`Failed to fetch movies: ${response.statusText}`);
   }
 
   const data = await response.json();
-  console.log("Data retuned 👉", data.results)
+  // console.log("Data retuned 👉", data.results)
   return data.results;
 };
 
